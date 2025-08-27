@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id= "maillink"></p>
+
+    <script>
+        const name = "Alfons"
+        const mail = "alfonsm@hiof"
+
+        const maillink = ´<a href="mailto:${mail}"> Send mail till ${name}<a/>`
+
+         document.getElementById("maillink") .innerhtml = maillink
+
+    </script>
+</body>
+</html>

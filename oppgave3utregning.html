@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<p id="melding"></p>
-<script>
+<p id="average"></p>
+
 <body>
-   let aa = 37;
-   let ab = 33;
-   let ac = 7;
-   let ad = 2;
+    <script>
+      const aa = 37;
+     const ab = 32;
+     const ac = 7;
+     const ad = 2;
 
-   let utskrift = 2025
+        const totalAge = aa + ab + ac + ad
 
-   document.getElementById("melding") .innerHTML=utskrift;
+        const average = totalAge /4
+
+     let utskrift = 2025
+
+     document.getElementById("average") .innerHTML = average;
 </script>
 </body>
 </html>
