@@ -14,6 +14,8 @@
                 office: "D1-016",
                 email: "toremake@hiof.no",
                 birthyear: 1983,
+                courses: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designprojekt", 
+                "Utvikling av interaktive nettsteder"]
             },
         
             {
@@ -21,28 +23,33 @@
                 office: "D1-015",
                 email: "danielb@hiof.no",
                 birthyear: 1977,
+                courses: ["Designmetoder", "UI Designprojekt"]
             },
             {
                 name: "Ann-Chartlott Karlsen", 
                 office: "D1-062",
                 email: "ackarlse@hiof.no",
                 birthyear: 1992,
+                courses: ["Webutvikling", "uhou"]
             },
             {
                 name: "Ole Edvard Ørebæk", 
                 office: "D1-061A",
                 email: "oledvo@hiof.no",
                 birthyear: 1993,
+                courses: ["Innføring i datasikkerhet"]
             },
             {
                 name: "Thor", 
                 office: "Hjemmekontor",
                 email: "thoraho@hiof.no",
                 birthyear: 1990,
+                courses: ["Innføring i programmering"]
             },
         ]
 
-        const profiles = document.getElementById("profiles")
+
+       // const profiles = document.getElementById("profiles")
 
         lecturers.map(lecturer => {
             profiles.innerHTML += `
@@ -51,13 +58,19 @@
                 <span>Alder${2025 - lecturer.birthyear}</span>
                 <p>Kontor: ${lecturer.office}</p>
                 <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
-                    </li>`
+                <ul>
+                ${lecturer.courses.map(course => {
+                    return `<li>${course}</li>`
+
+                }).join(" ")}
+                </ul> 
+                </li>`
             console.log(lecturer)
         })
 
-lecturers.filter(lec => lecturer.birthyear >=1990).map(lecturer => {
+// lecturers.filter(lec => lecturer.birthyear >=1990).map(lecturer => {
     
-})
+// })
 
 
     </script>
