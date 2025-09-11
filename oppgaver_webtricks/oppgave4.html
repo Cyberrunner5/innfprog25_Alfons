@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -10,11 +11,11 @@
 
     <script>
         const name = "Alfons"
-        const mail = "alfonsm@hiof"
+        const email = "alfonsm@hiof"
 
-        const maillink = ´<a href="mailto:${mail}"> Send mail till ${name}<a/>`
+        const maillink = `<a href="mailto:${email}"> Send mail till ${name}<a/>`
 
-         document.getElementById("maillink") .innerhtml = maillink
+         document.getElementById("maillink") .innerHTML = maillink
 
     </script>
 </body>
