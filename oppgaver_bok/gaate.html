@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Testside</title>
+    <script>
+        
+        window.onload = oppstart;
+
+        function oppstart() {
+            document.getElementById("svar") .onclick = visSvar;
+        }
+
+        function visSvar() {
+            document.getElementById("svar") .innerHTML = "Den var grønn";
+        }
+
+    </script>
+    <style>
+    </style>
+    <body>
+        <p>Det var en gång en sten...</p>
+        <p id="svar">Klikk her for å se svaret</p>
+    </body>
+</head>
+</html>
