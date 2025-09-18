@@ -35,7 +35,7 @@
         </p>
     </footer>
 
-    <scripttt>
+    <script>
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,19 +47,19 @@
         ]
 
         //Secret keys to access url and images
-        let images_folder = "img
+        let images_folder = "img"
         let secret_key = 0
         let ak_key
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = false
+        const safeguard = true
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        console.log("Image folder: " + safe_images_folder)
 
         let HTML_employees = ""
 
@@ -72,7 +72,7 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
+                document.getElementbyId("employee_list").innerHTML = HTML_employees
         }
 
         //System prints
