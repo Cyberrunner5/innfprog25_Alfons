@@ -35,7 +35,7 @@
         </p>
     </footer>
 
-    <script>
+    <script> //Script-taggen var felstavad och skrevs om till <script>. Om inte detta hade gjorts, så hade inte koden under uppfattats som JavaScript. 
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,19 +47,19 @@
         ]
 
         //Secret keys to access url and images
-        let images_folder = "img"
+        let images_folder = "img" //Här saknades en sista ” efter ”img. En sista ” behövs för att innesluta img och definera variablen: images_folder.
         let secret_key = 0
         let ak_key
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = true
+        const safeguard = true //Safeguard stod som false, men ändrades till true eftersom det betingade logiken krävde det för att delar av programmet skulle köras. 
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.log("Image folder: " + safe_images_folder)
+        console.log("Image folder: " + safe_images_folder) //Här fanns ett stavfel på console.logg vilket gjorde att det inte kunde loggas till konsolen korrekt. Genom att ta bort ett ”g” löstes detta problem
 
         let HTML_employees = ""
 
@@ -72,7 +72,7 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employees
+                document.getElementById("employee_list").innerHTML = HTML_employees //Det var två för många av bokstaven ”e” i variablen HTML_employees jämfört med hur variabeln skrivits på andra platser i koden. Två stycken ”e” togs därför bort. getElementbyId ändrades också till getElementById
         }
 
         //System prints
