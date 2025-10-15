@@ -17,19 +17,44 @@
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
     <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
-
     <script>
         //PROBLEM 1
         const hexadecimal_characters = "ABCDEF1234567890"
         const hexadecimal_characters_array = Array.from(hexadecimal_characters)
         let random_color_code = "#"
+
+
         
         //Din kode for å løse problem 1 her.
+       
+        //while(random_color_code.length < 7 ){
+          // random_color_code += hexadecimal_characters_array[Math.floor( Math.random() * hexadecimal_characters_array.length)]
+          // return random_color_code
+          // document.getElementById(random_color).innerHTML = random_color_code
+      //  }
+
+
+       // function slump(hexadecimal) {
+           // hexadecimal_characters_array.map
+            //console.log(random_color_code + hexadecimal)
+            //document.getElementById("hexadecimal").innerHTML = hexadecimal
+        //}
+
+        //return hexadecimal_characters
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
-
+       
         //Din kode for å løse problem 2 her.
+
+        function wordcounter(word){
+            if(word === "betingelse")
+            console.log("Ja")
+            document.getElementById(betingelse_sjekk).innerHTML = "Ja"
+            //return
+        } 
+
+        programming_words.map(word => wordcounter(word))
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
