@@ -47,14 +47,30 @@
        
         //Din kode for å løse problem 2 her.
 
-        function wordcounter(word){
-            if(word === "betingelse")
-            console.log("Ja")
-            document.getElementById(betingelse_sjekk).innerHTML = "Ja"
+        //function wordcounter(word){
+            //if(word === "betingelse"){
+            //console.log("Ja")
+            //document.getElementById("betingelse_sjekk").innerHTML = "Ja"
+            //}
+            
             //return
+        //} 
+        //programming_words.map(word => wordcounter(word))
+
+        //Nytt försök
+        function wordcounter(word){
+            if(programming_words.includes(word)){
+            return "Ja"
+        } else{
+                return "Nei"
+            }
         } 
 
-        programming_words.map(word => wordcounter(word))
+        document.getElementById("betingelse_sjekk").innerHTML = wordcounter("betingelse")
+        document.getElementById("algoritme_sjekk").innerHTML = wordcounter("algoritme")
+        document.getElementById("problemlosning_sjekk").innerHTML = wordcounter("problemløsning")
+
+        
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
