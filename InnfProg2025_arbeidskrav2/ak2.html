@@ -16,15 +16,13 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p>
     <script>
         //PROBLEM 1
         const hexadecimal_characters = "ABCDEF1234567890"
         const hexadecimal_characters_array = Array.from(hexadecimal_characters)
         let random_color_code = "#"
 
-
-        
         //Din kode for å løse problem 1 her.
        
         //while(random_color_code.length < 7 ){
@@ -41,6 +39,19 @@
         //}
 
         //return hexadecimal_characters
+
+
+        //Försök efter feedback från kommentar
+        function slump(){
+            let random_color_code = "#"
+            while(random_color_code.length < 7 ){
+                random_color_code += hexadecimal_characters_array[Math.floor( Math.random() * hexadecimal_characters_array.length)]
+            }
+            document.getElementById("random_color").innerHTML = random_color_code
+        }
+
+        slump()
+
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
@@ -69,7 +80,6 @@
         document.getElementById("betingelse_sjekk").innerHTML = wordcounter("betingelse")
         document.getElementById("algoritme_sjekk").innerHTML = wordcounter("algoritme")
         document.getElementById("problemlosning_sjekk").innerHTML = wordcounter("problemløsning")
-
         
 
         //PROBLEM 3
@@ -77,6 +87,43 @@
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //Din kode for å løse problem 3 her.
+
+        //Försök 1
+        //const average_number = (tall_array_en[0] + tall_array_en[1] + tall_array_en[2] + tall_array_en[3] + tall_array_en[4] + tall_array_en[5] + tall_array_en[6] + tall_array_en[7] + tall_array_en[8])/9
+        //document.getElementById("avg_array_one").innerHTML = average_number
+
+        //const average_number_2 = (tall_array_to[0] + tall_array_to[1] + tall_array_to[2] + tall_array_to[3] + tall_array_to[4] + tall_array_to[5] + tall_array_to[6])/7
+        //document.getElementById("avg_array_two").innerHTML = average_number_2
+
+
+        //Försök att använda tempelate literals för att korta ner koden och kunna köra olika arrayer genom samma funktion
+        //function average_number(array_number){
+            //return '${array_number}[0] + ${array_number}[1] + ${array_number}[2] + ${array_number}[3] + ${array_number}[4] + ${array_number}[5] + ${array_number}[6] + ${array_number}[7] + ${array_number}[8])/9'
+            //average_number(tall_array_en)
+            //console.log(array_number)
+            //document.getElemenytById("avg_array_one").innerHTML = average_number
+        //}
+
+        //Försök 2 att kunna göra båda uträkningarna i en funktion
+        //function average_number_finder(average_number){
+        //    return (array_number.length * (array_number[addera_en_efter_varje_randomisering]))/array_number.length
+        //    let array_number = #
+        //    document.getElementById("avg_array_one").innerHTML = average_number_finder()
+        //}
+
+        //Försök 3 att kunna göra båda uträkningarna i en funktion, efter att ha rådfrågat studentassistent som berättade vad jag kunde söka efter på Google
+        function counter(array_number){
+            let total = 0
+            for(teller = 0; teller < array_number.length; teller++){
+                total += array_number[teller]
+            }
+            return total / array_number.length
+        } 
+        
+        document.getElementById("avg_array_one").innerHTML = counter(tall_array_en)
+        document.getElementById("avg_array_two").innerHTML = counter(tall_array_to)
+
+
     </script>
 </body>
 </html>
