@@ -30,10 +30,10 @@
         }
 
         const paddle1 = {
-            x: 100,
+            x: 400,
             y: 100,
-            w: 50,
-            h: 200
+            w: 100,
+            h: 100
         }
 
         requestAnimationFrame = window.requestAnimationFrame ||
@@ -50,6 +50,24 @@
 
             ball.y + ball.radius >= canvas.height ? ball.speedY = ball.speedY * -1 : null
             ball.y - ball.radius <= 0 ? ball.speedY = ball.speedY * -1 : null
+
+
+            //Något fungerar inte, hämta in det nya via github repository
+           if(ball.x <= paddle1.x + paddle1.w && ball.y <= paddle1-y + paddle1.h){
+            ball.speedX *= -1
+           }
+
+           if(ball.x <= paddle1.x && ball.y <= paddle1.y + paddle1.h){
+            ball.speedX *= -1
+           }
+
+           if(ball.y <= paddle1.y + paddle1.h && ball.x <= paddle1.x + paddle1.w){
+            ball.speedX *= -1
+           }
+
+           if(ball.y <= paddle.y && ball.x <= paddle.x + paddle.w){
+            ball.speedX *= -1
+           }
 
 
             ball.x += ball.speedX
