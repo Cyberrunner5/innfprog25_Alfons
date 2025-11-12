@@ -18,6 +18,8 @@
             --Ditt svar her. Husk kilder--
         */
 
+        //Försök 1: Att skapa en rekursiv funktion
+
         //function numberSelector(n) {
             // Din kode her
             //Försök 1
@@ -32,9 +34,33 @@
 
 
     //Försök 2
+    /*
+        function numberSelector(fromNumber){
+            //console.log(fromNumber)
+            
+            let nextNumber = fromNumber - 1;
+
+            if (nextNumber > 0){
+                numberSelector(nextNumber);
+            }
+            document.getElementById("numberList").innerHTML = fromNumber
+        }
+
+        numberSelector(3)
+    */
+
+        //Försök 3: Att generera slumpmässiga tal mellan 1 och 9 samt sluta köra rekursivt när talet 4 eller 7 blir valt
+        //Ett problem är dock att 0 skulle kunna genereras som tal, men vi vill bara generera 1-9
+        
         function numberSelector(fromNumber){
             console.log(fromNumber)
-            
+            console.log(nextNumber)
+            nextNumber = Math.floor(Math.random() * 10)
+
+            if (fromNumber != 4 || fromNumber != 7){
+                numberSelector((nextNumber))
+            }
+            document.getElementById("numberList").innerHTML = fromNumber
         }
 
 
