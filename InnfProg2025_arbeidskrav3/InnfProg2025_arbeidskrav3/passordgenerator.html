@@ -8,9 +8,19 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
+    <p>Klikk på knappen under for å potensielt inkludere små bokstaver i passordet</p>
+    <button id="lowercasebtn">Små bokstaver</button>
 
+    <p>Klikk på knappen under for å potensielt inkludere stora bokstaver i passordet</p>
+    <button id="uppercasebtn">Stora bokstäver</button>
 
-     <p>Ditt passord: <span id="generatedPassword"></span></p>
+    <p>Klikk på knappen under for å potensielt inkludere spesialtegn i passordet</p>
+    <button id="symbolbtn">Spesialtegn</button>
+    
+    <p>Skriv antallet tegn du vil ha i passordet</p>
+    <input type="number" name="antall" id="antall"/>
+
+     <p>Ditt passord: <span id="generatedPassword">printAMessage</span></p>
 
      <script>
         const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -18,8 +28,27 @@
         const numbers = "0123456789";
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
+        let totalarray = []
+
+        const lcbtn = document.getElementById("lowercasebtn")
+
+        lcbtn.addEventListener("click", passwordgenerator)
+
         function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
             /* Din kode her */
+            
+            console.log("Det är ändå något!")
+
+            /*
+            let totalarray = Array.from()
+
+            totalarray.push
+
+            if (tastetrykk lowercase) {
+                add lowercase to Array
+            }
+
+            */
         }
      </script>
 </body>
