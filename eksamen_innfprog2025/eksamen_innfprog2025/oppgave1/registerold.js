@@ -6,7 +6,7 @@ let = personal [
         befattning: "Lektor",
         kontor: "A201",
         mejladress: "anders.hansson@lu.no",
-        kursansvar: "Regnskap"
+        kursansvar: "Regnskap" //Måste kunna lägga in flera värden på samma objekt
     },
     {
         namn: "Erik Jansson",
