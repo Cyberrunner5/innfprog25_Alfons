@@ -1,14 +1,39 @@
 //Hur man nu skriver extern javascript och länkar det till en HTML-fil i en annan mapp
 
-let = personal [
+const befattningslista = ["Rektor","Professor", "Lektor", "Dekan", "Vaktmester"]
+
+console.log(befattningslista)
+
+let personal = [
     {
-        namn: "Anders Hansson",
-        befattning: "Lektor",
-        kontor: "A201",
-        mejladress: "anders.hansson@lu.no",
-        kursansvar: ["Regnskap", "Makroøkonomi"] //Måste kunna lägga in flera värden på samma objekt
+        Etternavn: "Hansson",
+        Fornavn: "Anders",
+        Stilling: befattningslista[1],
+        Kontor: "A201",
+        Epost: "anders.hansson@hiof.no",
+        Kursansvar: ["Regnskap", "Makroøkonomi"]
     },
     {
+        Etternavn: "Olssen",
+        Fornavn: "Ola",
+        Stilling: befattningslista[2],
+        Kontor: "B204",
+        Epost: "ola.olssenh@hiof.no",
+        Kursansvar: "Programmering 1"
+    }
+]
+
+const visa = personal[0]
+
+console.log(visa)
+
+//let personalen = personal.map((namn) => personal.namn)
+//console.log(personalen)
+
+
+    /*
+
+     {
         namn: "Erik Jansson",
         befattning: "Lektor",
         kontor: "A202",
@@ -38,11 +63,6 @@ let = personal [
     }
 ]
 
-
-let personalen = personal.map((namn) => personal.namn)
-console.log(personalen)
-
-    /*
     {
         namn: 
         befattning: 
