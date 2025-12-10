@@ -38,7 +38,9 @@ let = personal [
     }
 ]
 
-console.log(personal)
+
+let personalen = personal.map((namn) => personal.namn)
+console.log(personalen)
 
     /*
     {
