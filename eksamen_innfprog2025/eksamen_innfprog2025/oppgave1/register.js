@@ -1,182 +1,184 @@
+//Lista med olika befattningar
 const befattningslista = ["Rektor", "Professor", "Lektor", "Dekan", "Vaktmester"];
 console.log(befattningslista);
 
+//Array med objekt med information om anställda
 let personal = [
     // Rektor
     {
-        Etternavn: "Johansen",
-        Fornavn: "Elisabeth",
-        Stilling: befattningslista[0],
-        Kontor: "Rektors kontor",
-        Epost: "elisabeth.johansen@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Johansen",
+        fornamn: "Elisabeth",
+        befattning: befattningslista[0],
+        kontor: "E301",
+        mejladress: "elisabeth.johansen@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     // Dekaner
     {
-        Etternavn: "Nilsen",
-        Fornavn: "Kari",
-        Stilling: befattningslista[3],
-        Kontor: "D101",
-        Epost: "kari.nilsen@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Nilsen",
+        fornamn: "Kari",
+        befattning: befattningslista[3],
+        kontor: "D101",
+        mejladress: "kari.nilsen@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     {
-        Etternavn: "Berg",
-        Fornavn: "Per",
-        Stilling: befattningslista[3],
-        Kontor: "D102",
-        Epost: "per.berg@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Berg",
+        fornamn: "Per",
+        befattning: befattningslista[3],
+        kontor: "D102",
+        mejladress: "per.berg@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     // Vaktmästare
     {
-        Etternavn: "Eriksen",
-        Fornavn: "Hans",
-        Stilling: befattningslista[4],
-        Kontor: "Vaktmesterens kontor",
-        Epost: "hans.eriksen@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Eriksen",
+        fornamn: "Hans",
+        befattning: befattningslista[4],
+        kontor: "B01",
+        mejladress: "hans.eriksen@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     {
-        Etternavn: "Lien",
-        Fornavn: "Eva",
-        Stilling: befattningslista[4],
-        Kontor: "Vaktmesterens kontor",
-        Epost: "eva.lien@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Lien",
+        fornamn: "Eva",
+        befattning: befattningslista[4],
+        kontor: "B02",
+        mejladress: "eva.lien@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     {
-        Etternavn: "Hauge",
-        Fornavn: "Arne",
-        Stilling: befattningslista[4],
-        Kontor: "Vaktmesterens kontor",
-        Epost: "arne.hauge@hiof.no",
-        Kursansvar: "Ingen kursansvar"
+        efternamn: "Hauge",
+        fornamn: "Arne",
+        befattning: befattningslista[4],
+        kontor: "B03",
+        mejladress: "arne.hauge@hiof.no",
+        kursansvar: "Ingen kursansvar"
     },
     // Professorer
     {
-        Etternavn: "Kristiansen",
-        Fornavn: "Lars",
-        Stilling: befattningslista[1],
-        Kontor: "P301",
-        Epost: "lars.kristiansen@hiof.no",
-        Kursansvar: ["Matematikk 1", "Fysikk"]
+        efternamn: "Kristiansen",
+        fornamn: "Lars",
+        befattning: befattningslista[1],
+        kontor: "P301",
+        mejladress: "lars.kristiansen@hiof.no",
+        kursansvar: ["Matematikk 1", "Fysikk"]
     },
     {
-        Etternavn: "Jensen",
-        Fornavn: "Mette",
-        Stilling: befattningslista[1],
-        Kontor: "P302",
-        Epost: "mette.jensen@hiof.no",
-        Kursansvar: "Statsvitenskap"
+        efternamn: "Jensen",
+        fornamn: "Mette",
+        befattning: befattningslista[1],
+        kontor: "P302",
+        mejladress: "mette.jensen@hiof.no",
+        kursansvar: "Statsvitenskap"
     },
     {
-        Etternavn: "Rasmussen",
-        Fornavn: "Sverre",
-        Stilling: befattningslista[1],
-        Kontor: "P303",
-        Epost: "sverre.rasmussen@hiof.no",
-        Kursansvar: ["Biologi", "Kjemi"]
+        efternamn: "Rasmussen",
+        fornamn: "Sverre",
+        befattning: befattningslista[1],
+        kontor: "P303",
+        mejladress: "sverre.rasmussen@hiof.no",
+        kursansvar: ["Biologi", "Kjemi"]
     },
     {
-        Etternavn: "Dahl",
-        Fornavn: "Siri",
-        Stilling: befattningslista[1],
-        Kontor: "P304",
-        Epost: "siri.dahl@hiof.no",
-        Kursansvar: "Historie"
+        efternamn: "Dahl",
+        fornamn: "Siri",
+        befattning: befattningslista[1],
+        kontor: "P304",
+        mejladress: "siri.dahl@hiof.no",
+        kursansvar: "Historie"
     },
     {
-        Etternavn: "Strand",
-        Fornavn: "Erik",
-        Stilling: befattningslista[1],
-        Kontor: "P305",
-        Epost: "erik.strand@hiof.no",
-        Kursansvar: ["Kunsthistorie", "Filosofi"]
+        efternamn: "Strand",
+        fornamn: "Erik",
+        befattning: befattningslista[1],
+        kontor: "P305",
+        mejladress: "erik.strand@hiof.no",
+        kursansvar: ["Kunsthistorie", "Filosofi"]
     },
     // Lektorer
     {
-        Etternavn: "Hansson",
-        Fornavn: "Anders",
-        Stilling: befattningslista[2],
-        Kontor: "A201",
-        Epost: "anders.hansson@hiof.no",
-        Kursansvar: ["Regnskap", "Makroøkonomi"]
+        efternamn: "Hansson",
+        fornamn: "Anders",
+        befattning: befattningslista[2],
+        kontor: "A201",
+        mejladress: "anders.hansson@hiof.no",
+        kursansvar: ["Regnskap", "Makroøkonomi"]
     },
     {
-        Etternavn: "Olssen",
-        Fornavn: "Ola",
-        Stilling: befattningslista[2],
-        Kontor: "B204",
-        Epost: "ola.olssen@hiof.no",
-        Kursansvar: "Programmering 1"
+        efternamn: "Olssen",
+        fornamn: "Ola",
+        befattning: befattningslista[2],
+        kontor: "B204",
+        mejladress: "ola.olssen@hiof.no",
+        kursansvar: "Programmering 1"
     },
     {
-        Etternavn: "Kleppe",
-        Fornavn: "Solveig",
-        Stilling: befattningslista[2],
-        Kontor: "B205",
-        Epost: "solveig.kleppe@hiof.no",
-        Kursansvar: "Programmering 2"
+        efternamn: "Kleppe",
+        fornamn: "Solveig",
+        befattning: befattningslista[2],
+        kontor: "B205",
+        mejladress: "solveig.kleppe@hiof.no",
+        kursansvar: "Programmering 2"
     },
     {
-        Etternavn: "Svendsen",
-        Fornavn: "Nina",
-        Stilling: befattningslista[2],
-        Kontor: "B206",
-        Epost: "nina.svendsen@hiof.no",
-        Kursansvar: ["Markedsføring", "Juss"]
+        efternamn: "Svendsen",
+        fornamn: "Nina",
+        befattning: befattningslista[2],
+        kontor: "B206",
+        mejladress: "nina.svendsen@hiof.no",
+        kursansvar: ["Markedsføring", "Juss"]
     },
     {
-        Etternavn: "Andersen",
-        Fornavn: "Tor",
-        Stilling: befattningslista[2],
-        Kontor: "C301",
-        Epost: "tor.andersen@hiof.no",
-        Kursansvar: "Studieteknikk"
+        efternamn: "Andersen",
+        fornamn: "Tor",
+        befattning: befattningslista[2],
+        kontor: "C301",
+        mejladress: "tor.andersen@hiof.no",
+        kursansvar: "Studieteknikk"
     },
     {
-        Etternavn: "Aasen",
-        Fornavn: "Grete",
-        Stilling: befattningslista[2],
-        Kontor: "C302",
-        Epost: "grete.aasen@hiof.no",
-        Kursansvar: "Dataanalyse"
+        efternamn: "Aasen",
+        fornamn: "Grete",
+        befattning: befattningslista[2],
+        kontor: "C302",
+        mejladress: "grete.aasen@hiof.no",
+        kursansvar: "Dataanalyse"
     },
     {
-        Etternavn: "Bakstad",
-        Fornavn: "Tom",
-        Stilling: befattningslista[2],
-        Kontor: "C303",
-        Epost: "tom.bakstad@hiof.no",
-        Kursansvar: "Webutvikling"
+        efternamn: "Bakstad",
+        fornamn: "Tom",
+        befattning: befattningslista[2],
+        kontor: "C303",
+        mejladress: "tom.bakstad@hiof.no",
+        kursansvar: "Webutvikling"
     },
     {
-        Etternavn: "Lien",
-        Fornavn: "Maria",
-        Stilling: befattningslista[2],
-        Kontor: "C304",
-        Epost: "maria.lien@hiof.no",
-        Kursansvar: "Digital markedsføring"
+        efternamn: "Lien",
+        fornamn: "Maria",
+        befattning: befattningslista[2],
+        kontor: "C304",
+        mejladress: "maria.lien@hiof.no",
+        kursansvar: "Digital markedsføring"
     },
     {
-        Etternavn: "Hansen",
-        Fornavn: "Knut",
-        Stilling: befattningslista[2],
-        Kontor: "C305",
-        Epost: "knut.hansen@hiof.no",
-        Kursansvar: ["Systemutvikling", "Databaser"]
+        efternamn: "Hansen",
+        fornamn: "Knut",
+        befattning: befattningslista[2],
+        kontor: "C305",
+        mejladress: "knut.hansen@hiof.no",
+        kursansvar: ["Systemutvikling", "Databaser"]
     },
     {
-        Etternavn: "Ulvik",
-        Fornavn: "Eva",
-        Stilling: befattningslista[2],
-        Kontor: "C306",
-        Epost: "eva.ulvik@hiof.no",
-        Kursansvar: "Helseinformatikk"
+        efternamn: "Ulvik",
+        fornamn: "Eva",
+        befattning: befattningslista[2],
+        kontor: "C306",
+        mejladress: "eva.ulvik@hiof.no",
+        kursansvar: "Helseinformatikk"
     }
 ];
 
+//Ska tas bort
 const visa = personal[0]
-
 console.log(visa)
