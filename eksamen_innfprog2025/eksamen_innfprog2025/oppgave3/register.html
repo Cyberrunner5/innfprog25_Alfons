@@ -5,14 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../oppgave1/register.js"></script>
     <script src="../oppgave1/actions.js" defer></script>
-    <title>Register</title>
+    <title>Fiktivt Register over ansatte</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <h1>
+                <a href="register.html">Høgskolen JS</a>
+            </h1>
+            <ul>
+                <li> 
+                    <a href="register.html">Se register</a>
+                </li>
+                <li>
+                    <a href="admin.html">Rediger</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <aside>
+        <section id="filtersektion1">
+            <button id="alleBtn">Vis alle ansatte</button>
+            <button id="undervisareBtn">Vis undervisere</button>
+            <button id="administrationBtn">Vis administrasjon</button>
+        </section>
+        <section id="filtersektion2">
+            <p>Vis kun stilling:</p>
+            <button id="rektorBtn">Rektor</button>
+            <button id="professorBtn">Professor</button>
+            <button id="lektorBtn">Lektor</button>
+            <button id="dekanBtn">Dekan</button>
+            <button id="vaktmastareBtn">Vaktmester</button>
+        </section>
+    </aside>
     <main>
+        <h2>Ansatte</h2>
         <section id="registerlista">
 
 
         </section>
+        <section id="registerlista2"></section>
     </main>
 </body>
 </html>
