@@ -29,7 +29,7 @@ skrivutkort()
 */
 
 
-
+/*
 let utskriftpersonal = ""
 
 //Funktion 1 och 2
@@ -39,7 +39,7 @@ personal.map(
 
 document.getElementById("registerlista").innerHTML = utskriftpersonal
 
-
+*/
 
 //Funktion 3, kalla funktion 1 och 2 när färdig? Behöver då vanlig eller rekursiv? (ska ta emot parameter so anger stilling)
 
@@ -148,6 +148,12 @@ vaktBtn.addEventListener("click", () => filtreraSkrivUtPersonal(befattningslista
 //EventListener som kallar filtreraSkrivUtPersonal när alleBtn klickas på
 alleBtn.addEventListener("click", () => filtreraSkrivUtPersonal("allPersonal"))
 
+//EventListener som kallar filtreraSkrivUtPersonal när undervisareBtn klickas på
+undeBtn.addEventListener("click", () => filtreraSkrivUtPersonal("undervisare"))
+
+//EventListener som kallar filtreraSkrivUtPersonal när administrationBtn klickas på
+admiBtn.addEventListener("click", () => filtreraSkrivUtPersonal("administration"))
+
 //Funktion som filtrerar arrayen personal och skriver ut information om en vald yrkesgrupp
 function filtreraSkrivUtPersonal(befattningsinformation) {
 
@@ -158,6 +164,16 @@ function filtreraSkrivUtPersonal(befattningsinformation) {
 
     if(befattningsinformation === "allPersonal") {
         valdYrkesgrupp = personal
+        //Här filtreras det så att endast undervisare läggs till som objekt i valdYrkesgrupp. Denna funktionaliteten beskrivs som "Funktion 5" i examensbeskrivningen
+    } else if(befattningsinformation === "undervisare"){
+        valdYrkesgrupp = personal.filter(
+            (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2]
+        )
+        ////Här filtreras det så att endast administratörer läggs till som objekt i valdYrkesgrupp. Även denna funktionaliteten beskrivs som "Funktion " i examensbeskrivningen
+    } else if(befattningsinformation === "administration"){
+        valdYrkesgrupp = personal.filter(
+            (personen) => personen.befattning == befattningslista[0] || personen.befattning == befattningslista[3] || personen.befattning == befattningslista[4]
+        )
     } else {
         //Listan personal filtreras så att endast den valda yrkesgruppen lagras som objekt i en array i variablen valdYrkesgrupp
         valdYrkesgrupp = personal.filter(
@@ -170,9 +186,35 @@ function filtreraSkrivUtPersonal(befattningsinformation) {
         (person) => {filtreradUtskrift += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} </h3> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
     )
 
-
     document.getElementById("registerlista").innerHTML = filtreradUtskrift
 }
+
+//Kallar funktionen så att all personal skrivs ut på sidan direkt
+filtreraSkrivUtPersonal("allPersonal")
+
+
+//Funktion 4 - Returnera alla högskolans kurser
+function kursRegisterUtskrift(){
+    let utskriftAvKurser = ""
+    let undervisarna
+
+    undervisarna = personal.filter(
+            (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2])
+
+    undervisarna.map((person) => {utskriftAvKurser += ` <li> ${person.kursansvar} </li> `}
+    )
+
+    document.getElementById("kursregister").innerHTML = utskriftAvKurser
+}
+
+kursRegisterUtskrift() 
+
+
+
+
+
+
+
 
 
 /*
