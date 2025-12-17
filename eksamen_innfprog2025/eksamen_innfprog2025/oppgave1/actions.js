@@ -104,7 +104,149 @@ function visaProfessorerna() {
 }
 */
 
-//Sista lösningsförsöket
+//Följande tre stycken kod genererades som förbättring av min föregångna kod i GPT UiO. Se utkommenterad kod nedan för att se min kod som föregick denna. 
+
+// Definiera en funktion som lägger till eventlyssnare om elementet finns
+function addEventListenerIfExists(element, eventType, callback) {
+    if (element) {
+        element.addEventListener(eventType, callback);
+    }
+}
+
+// Lagrar HTML-element för varje knapp
+let rektBtn = document.getElementById("rektorBtn");
+let profBtn = document.getElementById("professorBtn");
+let lektBtn = document.getElementById("lektorBtn");
+let dekaBtn = document.getElementById("dekanBtn");
+let vaktBtn = document.getElementById("vaktmastareBtn");
+let alleBtn = document.getElementById("alleBtn");
+let undeBtn = document.getElementById("undervisareBtn");
+let admiBtn = document.getElementById("administrationBtn");
+
+// Lägg till eventlyssnare endast om knappen finns
+addEventListenerIfExists(rektBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[0]));
+addEventListenerIfExists(profBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[1]));
+addEventListenerIfExists(lektBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[2]));
+addEventListenerIfExists(dekaBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[3]));
+addEventListenerIfExists(vaktBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[4]));
+addEventListenerIfExists(alleBtn, "click", () => filtreraSkrivUtPersonal("allPersonal"));
+addEventListenerIfExists(undeBtn, "click", () => filtreraSkrivUtPersonal("undervisare"));
+addEventListenerIfExists(admiBtn, "click", () => filtreraSkrivUtPersonal("administration"));
+
+//Funktion som filtrerar arrayen personal och skriver ut information om en vald yrkesgrupp
+function filtreraSkrivUtPersonal(befattningsinformation) {
+
+    //I denna variabel lagras textsträngen med information om den filtrerade gruppen
+    let filtreradUtskrift = ""
+
+    let valdYrkesgrupp
+
+    if(befattningsinformation === "allPersonal") {
+        valdYrkesgrupp = personal
+        //Här filtreras det så att endast undervisare läggs till som objekt i valdYrkesgrupp. Denna funktionaliteten beskrivs som "Funktion 5" i examensbeskrivningen
+    } else if(befattningsinformation === "undervisare"){
+        valdYrkesgrupp = personal.filter(
+            (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2]
+        )
+        ////Här filtreras det så att endast administratörer läggs till som objekt i valdYrkesgrupp. Även denna funktionaliteten beskrivs som "Funktion " i examensbeskrivningen
+    } else if(befattningsinformation === "administration"){
+        valdYrkesgrupp = personal.filter(
+            (personen) => personen.befattning == befattningslista[0] || personen.befattning == befattningslista[3] || personen.befattning == befattningslista[4]
+        )
+    } else {
+        //Listan personal filtreras så att endast den valda yrkesgruppen lagras som objekt i en array i variablen valdYrkesgrupp
+        valdYrkesgrupp = personal.filter(
+            (personen) => personen.befattning == befattningsinformation
+        )
+    }
+    
+    //Går igenom arrayen valdYrkesgrupp och skriver ut korrekt information om valda yrkesgruppen som en sträng
+    valdYrkesgrupp.map(
+        (person) => {filtreradUtskrift += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} </h3> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
+    )
+
+    document.getElementById("registerlista").innerHTML = filtreradUtskrift
+}
+
+//Kallar funktionen så att all personal skrivs ut på sidan direkt
+filtreraSkrivUtPersonal("allPersonal")
+
+
+//Funktion 4 - Returnera alla högskolans kurser
+function kursRegisterUtskrift(){
+    let utskriftAvKurser = ""
+    let undervisarna
+    if(element) {
+    undervisarna = personal.filter(
+                (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2])
+
+        undervisarna.map((person) => {utskriftAvKurser += ` <li> ${person.kursansvar} </li> `}
+        )
+
+        document.getElementById("kursregister").innerHTML = utskriftAvKurser
+    }
+}
+
+kursRegisterUtskrift() 
+
+
+//Rullgardinsmeny för befattning
+//let valjbefattningsmeny = document.getElementById("valjbefattning").value
+function skapaBefattningsmeny(){
+
+}
+document.getElementById("valjbefattning").innerHTML += `<option value="${variabel}"></option>`
+
+//Funktion 5 - Lägg till en anställd
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+professorerna.map(
+    (person) => {utskriftpersonal += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} <h3/> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
+)
+
+document.getElementById("registerlista2").innerHTML = utskriftpersonal
+*/
+
+
+//document.getElementById("registerlista").innerHTML = professorerna
+
+//[här behöver det vara en variabel]
+
+//.join("---")
+
+
+/*
+function skrivutkort(indexbefattningslistavimåstefåfrånmapkanske) {
+//För anställda med kursansvar
+    if(personal.befattning == befattningslista[1]) {
+        const professorerna = personal.filter(
+    (personen) => personen.befattning == befattningslista[1])
+        personal.map(
+    (person) => {utskriftpersonal += `<ul> <li> <h2> ${person.fornamn} ${person.efternamn} <h2> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
+)
+
+document.getElementById("registerlista").innerHTML = utskriftpersonal
+        //För anställda utan kursansvar
+    } else {
+        document.getElementById("registerlista").innerHTML = `<li> ${personal[0].fornamn} ${personal[0].efternamn} </li> <li> Stilling: ${personal[0].befattning} </li> <li> Kontor: ${personal[0].kontor} </li> <li> E-post: ${personal[0].mejladress} </li> <li> ${personal[0].kursansvar} </li>` 
+    }
+}
+*/
+
+
+//Nedan kommer lösningen på att skapa knappar innan GPT UiO användes för att endast lyssna efter knapptryck om relevant knapp finns
+/*
 //Lagrar HTML-element för knapp som kan filtrera bort dem som inte är rektor
 let rektBtn = document.getElementById("rektorBtn")
 
@@ -153,101 +295,4 @@ undeBtn.addEventListener("click", () => filtreraSkrivUtPersonal("undervisare"))
 
 //EventListener som kallar filtreraSkrivUtPersonal när administrationBtn klickas på
 admiBtn.addEventListener("click", () => filtreraSkrivUtPersonal("administration"))
-
-//Funktion som filtrerar arrayen personal och skriver ut information om en vald yrkesgrupp
-function filtreraSkrivUtPersonal(befattningsinformation) {
-
-    //I denna variabel lagras textsträngen med information om den filtrerade gruppen
-    let filtreradUtskrift = ""
-
-    let valdYrkesgrupp
-
-    if(befattningsinformation === "allPersonal") {
-        valdYrkesgrupp = personal
-        //Här filtreras det så att endast undervisare läggs till som objekt i valdYrkesgrupp. Denna funktionaliteten beskrivs som "Funktion 5" i examensbeskrivningen
-    } else if(befattningsinformation === "undervisare"){
-        valdYrkesgrupp = personal.filter(
-            (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2]
-        )
-        ////Här filtreras det så att endast administratörer läggs till som objekt i valdYrkesgrupp. Även denna funktionaliteten beskrivs som "Funktion " i examensbeskrivningen
-    } else if(befattningsinformation === "administration"){
-        valdYrkesgrupp = personal.filter(
-            (personen) => personen.befattning == befattningslista[0] || personen.befattning == befattningslista[3] || personen.befattning == befattningslista[4]
-        )
-    } else {
-        //Listan personal filtreras så att endast den valda yrkesgruppen lagras som objekt i en array i variablen valdYrkesgrupp
-        valdYrkesgrupp = personal.filter(
-            (personen) => personen.befattning == befattningsinformation
-        )
-    }
-    
-    //Går igenom arrayen valdYrkesgrupp och skriver ut korrekt information om valda yrkesgruppen som en sträng
-    valdYrkesgrupp.map(
-        (person) => {filtreradUtskrift += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} </h3> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
-    )
-
-    document.getElementById("registerlista").innerHTML = filtreradUtskrift
-}
-
-//Kallar funktionen så att all personal skrivs ut på sidan direkt
-filtreraSkrivUtPersonal("allPersonal")
-
-
-//Funktion 4 - Returnera alla högskolans kurser
-function kursRegisterUtskrift(){
-    let utskriftAvKurser = ""
-    let undervisarna
-
-    undervisarna = personal.filter(
-            (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2])
-
-    undervisarna.map((person) => {utskriftAvKurser += ` <li> ${person.kursansvar} </li> `}
-    )
-
-    document.getElementById("kursregister").innerHTML = utskriftAvKurser
-}
-
-kursRegisterUtskrift() 
-
-
-
-
-
-
-
-
-
-/*
-
-professorerna.map(
-    (person) => {utskriftpersonal += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} <h3/> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
-)
-
-document.getElementById("registerlista2").innerHTML = utskriftpersonal
-*/
-
-
-//document.getElementById("registerlista").innerHTML = professorerna
-
-//[här behöver det vara en variabel]
-
-//.join("---")
-
-
-/*
-function skrivutkort(indexbefattningslistavimåstefåfrånmapkanske) {
-//För anställda med kursansvar
-    if(personal.befattning == befattningslista[1]) {
-        const professorerna = personal.filter(
-    (personen) => personen.befattning == befattningslista[1])
-        personal.map(
-    (person) => {utskriftpersonal += `<ul> <li> <h2> ${person.fornamn} ${person.efternamn} <h2> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
-)
-
-document.getElementById("registerlista").innerHTML = utskriftpersonal
-        //För anställda utan kursansvar
-    } else {
-        document.getElementById("registerlista").innerHTML = `<li> ${personal[0].fornamn} ${personal[0].efternamn} </li> <li> Stilling: ${personal[0].befattning} </li> <li> Kontor: ${personal[0].kontor} </li> <li> E-post: ${personal[0].mejladress} </li> <li> ${personal[0].kursansvar} </li>` 
-    }
-}
 */
