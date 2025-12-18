@@ -1,6 +1,5 @@
 //Lista med olika befattningar
 const befattningslista = ["Rektor", "Professor", "Lektor", "Dekan", "Vaktmester"];
-console.log(befattningslista);
 
 //Array med objekt med information om anställda
 let personal = [
@@ -178,7 +177,3 @@ let personal = [
         kursansvar: "Helseinformatikk"
     }
 ];
-
-//Ska tas bort
-const visa = personal[0]
-console.log(visa)

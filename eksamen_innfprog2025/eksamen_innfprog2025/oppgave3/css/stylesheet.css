@@ -1,0 +1,10 @@
+header{
+    background-color: #008b8b
+}
+
+.flexContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+}

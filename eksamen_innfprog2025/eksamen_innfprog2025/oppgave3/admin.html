@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../oppgave1/register.js"></script>
     <script src="../oppgave1/actions.js" defer></script>
+    <script src="oppgavetreactions.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
     <title>Rediger register over ansatte</title>
 </head>
 <body>
@@ -22,10 +24,11 @@
                 </li>
             </ul>
         </nav>
-        <main>
+    </header>
+        <main id="admindokument">
             <form>
                 <fieldset>
-                    <legend>Legg til ansatt<legend>
+                    <legend>Legg til ansatt</legend>
                     <label for="fornavn">
                         Fornavn
                         <input type="text" placeholder="fornavn" name="fornavn" id="fornavn"/>
@@ -43,25 +46,17 @@
                         <input type="text" placeholder="kontor" name="kontoret" id="kontoret"/>
                     </label>
                     <label>
-                        <select id="valjbefattning">
-
-                        </select>
+                        <select id="valjbefattning">Velg stilling</select>
                     </label>
                     <label for="kursansvaret">
                         Kursansvar
                         <input type="text" placeholder="kursansvar" name="kursansvaret" id="kursansvaret"/>
                     </label>
                 </fieldset>
+                <button type="button" id="leggtilansattBtn">Legg til ansatt</button>
             </form>
-            <section>
                 <h2>Ansatte</h2>
-
-            </section>
+                <section id="registerlista"></section>
         </main>
-    </header>
-    <main>
-
-    </main>
- 
 </body>
 </html>

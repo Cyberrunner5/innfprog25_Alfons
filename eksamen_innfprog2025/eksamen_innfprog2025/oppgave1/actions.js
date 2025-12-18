@@ -1,8 +1,3 @@
-//Ska tas bort
-const visar = personal[1]
-console.log(visar)
-
-
 
 /*
 function kortskapare(befattningslista[0]){
@@ -106,14 +101,14 @@ function visaProfessorerna() {
 
 //Följande tre stycken kod genererades som förbättring av min föregångna kod i GPT UiO. Se utkommenterad kod nedan för att se min kod som föregick denna. 
 
-// Definiera en funktion som lägger till eventlyssnare om elementet finns
-function addEventListenerIfExists(element, eventType, callback) {
-    if (element) {
+// Definiera en funktion som lägger till eventlyssnare om elementet finns 
+function addEventListenerIfExists(element, eventType, callback) { 
+    if (element) { // #OPPD3: Uppdaterad med if-test så att EventListener endast läggs till när elementet finns. Detta var en förbättring av min egna lösning, som sedan gjordes med GPT UiO. Min originella lösning finns utkommenterad längst ner i filen.
         element.addEventListener(eventType, callback);
     }
 }
 
-// Lagrar HTML-element för varje knapp
+//#OPPD3: Lagrar HTML-element för varje knapp. Lagrar elementen på färre rader än tidigare. Detta var en förbättring av min egna lösning, som sedan gjordes med GPT UiO. Min originella lösning finns utkommenterad längst ner i filen.
 let rektBtn = document.getElementById("rektorBtn");
 let profBtn = document.getElementById("professorBtn");
 let lektBtn = document.getElementById("lektorBtn");
@@ -123,7 +118,7 @@ let alleBtn = document.getElementById("alleBtn");
 let undeBtn = document.getElementById("undervisareBtn");
 let admiBtn = document.getElementById("administrationBtn");
 
-// Lägg till eventlyssnare endast om knappen finns
+// #OPPD3: Lägg till eventlyssnare endast om knappen finns, så att inga EventListeners sätts på knappar som inte existerar. Detta var en förbättring av min egna lösning, som sedan gjordes med GPT UiO. Min originella lösning finns utkommenterad längst ner i filen.
 addEventListenerIfExists(rektBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[0]));
 addEventListenerIfExists(profBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[1]));
 addEventListenerIfExists(lektBtn, "click", () => filtreraSkrivUtPersonal(befattningslista[2]));
@@ -140,6 +135,8 @@ function filtreraSkrivUtPersonal(befattningsinformation) {
     let filtreradUtskrift = ""
 
     let valdYrkesgrupp
+
+    let taBortSamlare = "Här ska det vara en knapp"
 
     if(befattningsinformation === "allPersonal") {
         valdYrkesgrupp = personal
@@ -162,43 +159,85 @@ function filtreraSkrivUtPersonal(befattningsinformation) {
     
     //Går igenom arrayen valdYrkesgrupp och skriver ut korrekt information om valda yrkesgruppen som en sträng
     valdYrkesgrupp.map(
-        (person) => {filtreradUtskrift += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} </h3> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: ${person.mejladress} </li> <li> Kursansvar: ${person.kursansvar} </li> </ul>` }
-    )
+        (person) => {let indexen = personal.indexOf(person)
 
-    document.getElementById("registerlista").innerHTML = filtreradUtskrift
+            filtreradUtskrift += `<ul> <li> <h3> ${person.fornamn} ${person.efternamn} </h3> </li> <li> Stilling: ${person.befattning} </li> <li> Kontor: ${person.kontor} </li> <li> E-post: <a href="mailto:${person.mejladress}"> ${person.mejladress} </a> </li> <li> Kursansvar: ${person.kursansvar} </li> ` // #OPPD3 mailto: lades till för att sidan ska bli mer användarvänlig och interaktiv. Med den funktionen kan användaren direkt mejla till den person vars mejladress de precis har klickat på. 
+        
+            //Endast i admin-html, där admindokument ligger som id på <main>
+            if(document.getElementById("admindokument")){
+                filtreradUtskrift += ` <li> <button onclick="taBortAnstalld(${indexen})">Slett ansatt</button> </li> `
+            }
+
+            filtreradUtskrift += `</ul>`
+        } 
+    )
+    if(document.getElementById("registerlista")){ //#OPPD3: Utskrift sker bara om elementet finns på sidan
+        document.getElementById("registerlista").innerHTML = filtreradUtskrift
+    }
 }
 
 //Kallar funktionen så att all personal skrivs ut på sidan direkt
 filtreraSkrivUtPersonal("allPersonal")
 
-
 //Funktion 4 - Returnera alla högskolans kurser
 function kursRegisterUtskrift(){
     let utskriftAvKurser = ""
     let undervisarna
-    if(element) {
     undervisarna = personal.filter(
                 (personen) => personen.befattning == befattningslista[1] || personen.befattning == befattningslista[2])
 
-        undervisarna.map((person) => {utskriftAvKurser += ` <li> ${person.kursansvar} </li> `}
+        undervisarna.map((person) => {utskriftAvKurser += `<li> ${person.kursansvar} </li>`}
         )
+        if(document.getElementById("kursregister")) { // #OPPD3: If-test lades till för att utskrift endast ska ske om id=kursregister finns, vilket endast finns i register.html
+            document.getElementById("kursregister").innerHTML = utskriftAvKurser
+        } 
+}
+if(id="kursregister") { // #OPPD3: If-test lades till för att funktionen endast ska kallas i register.html, där id=kursregister finns
+    kursRegisterUtskrift() 
+}
 
-        document.getElementById("kursregister").innerHTML = utskriftAvKurser
+
+//Lagrar HTML-element för knapp
+let lagraNyAnstalld = document.getElementById("leggtilansattBtn") 
+
+//Lägg till eventlyssnare
+addEventListenerIfExists(lagraNyAnstalld, "click", nyAnstalldSkrivUt)
+
+//Funktion 6 - Lägg till en anställd
+function nyAnstalldSkrivUt() {
+
+    let fornamna = document.getElementById("fornavn").value
+    let efternamna = document.getElementById("etternavn").value
+    let mejladressa = document.getElementById("epost").value
+    let kontoreta = document.getElementById("kontoret").value
+    let befattninga = document.getElementById("valjbefattning").value
+    let kursansvara = document.getElementById("kursansvaret").value
+
+    let nyAnstalld = {
+        fornamn: fornamna,
+        efternamn: efternamna,
+        mejladress: mejladressa,
+        kontor: kontoreta,
+        befattning: befattninga,
+        kursansvar: kursansvara
     }
+
+    personal.push(nyAnstalld)
+
+    filtreraSkrivUtPersonal("allPersonal") //Kallar filtreraSkrivUtPersonal med all personal så att den nya personen läggs till på sidan
 }
 
-kursRegisterUtskrift() 
+//Funktion 7 - Ta bort en anställd
+function taBortAnstalld(indexen) {
 
+    let bekraftelse = confirm("Er du sikker på at du vil fjerne denne ansatte?")// #OPPD3: En säkerhetsåtgärd där användaren behöver bekräfta sitt val
 
-//Rullgardinsmeny för befattning
-//let valjbefattningsmeny = document.getElementById("valjbefattning").value
-function skapaBefattningsmeny(){
+    if(bekraftelse){
+        personal.splice(indexen, 1) //Tar bort 1 element på relevant index
 
+        filtreraSkrivUtPersonal("allPersonal") //Kallar filtreraSkrivUtPersonal med all personal så att den nya personen tas bort från sidan
+    }  
 }
-document.getElementById("valjbefattning").innerHTML += `<option value="${variabel}"></option>`
-
-//Funktion 5 - Lägg till en anställd
-
 
 
 
@@ -245,7 +284,7 @@ document.getElementById("registerlista").innerHTML = utskriftpersonal
 */
 
 
-//Nedan kommer lösningen på att skapa knappar innan GPT UiO användes för att endast lyssna efter knapptryck om relevant knapp finns
+//Nedan kommer lösningen på att skapa knappar, som kallar funktionen filtreraSkrivUtPersonal, innan GPT UiO användes för att endast lyssna efter knapptryck om relevant knapp finns
 /*
 //Lagrar HTML-element för knapp som kan filtrera bort dem som inte är rektor
 let rektBtn = document.getElementById("rektorBtn")
