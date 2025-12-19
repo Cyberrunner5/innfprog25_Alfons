@@ -7,13 +7,13 @@
 </head>
 <body>
     <script>
-            //Funktionen start() togs bort då den inte behövdes
-            //Denne koden finner det lengste ordet i en liste med ord.
+        //Denne koden finner det lengste ordet i en liste med ord.
+        function start() {
             let ordListe = ["kode", "programmering", "design", "data", "variabel"];
 
             function finnLengsteOrd(liste) {
                 let lengste = "";
-                for (let i = 0; i < liste.length; i++) { 
+                for (let i = 0; i < liste.length; i++) {
                     let ord = liste[i];
                     if (ord.length > lengste.length) {
                         lengste = ord;
@@ -21,13 +21,21 @@
                         // gjør ingenting
                     }
                 }
-                console.log(`Det lengste ordet i listen er: ${lengste}`) //Här används nu template literals nu i stället för konkatinering eftersom template literals ofta är mer lättlästa och dynamiska. skrivUtResultat() och return togs bort då värdet på lengste kan konsolloggas redan här
+                return lengste;
             }
 
-            finnLengsteOrd(ordListe) //Här skickas arrayen ordListe in i parametern och får variablen liste i funktionen
+            function skrivUtResultat() {
+                let resultat = finnLengsteOrd(ordListe);
+                console.log("Det lengste ordet i listen er: " + resultat);
+            }
+
+            skrivUtResultat();
+        }
+
+        start();
 
         //Denne koden regner ut gjennomsnittsalderen til en gruppe personer.
-        //Funktionen startProgram() togs bort då den inte tillförde något till koden
+        function startProgram() {
             let personer = [
                 { navn: "Ola", alder: 24 },
                 { navn: "Kari", alder: 32 },
@@ -35,7 +43,7 @@
                 { navn: "Anne", alder: 41 }
             ];
 
-            function hentAlder(liste) { //Jag ändrade till hentAlder så att det är mer lättläsligt på mer korrekt norska
+            function hentAldre(liste) {
                 let alderArray = [];
                 for (let i = 0; i < liste.length; i++) {
                     let person = liste[i];
@@ -44,20 +52,25 @@
                 return alderArray;
             }
 
-            //let alderArray = personer.alder.length
             function regnUtGjennomsnitt(alderArray) {
                 let sum = 0;
                 for (let i = 0; i < alderArray.length; i++) {
                     sum = sum + alderArray[i];
                 }
                 let gjennomsnitt = sum / alderArray.length;
-                console.log(`Gjennomsnittsalderen er ${gjennomsnitt}`); //Här används nu template literals nu i stället för konkatinering eftersom template literals ofta är mer lättlästa och dynamiska.
+                return gjennomsnitt;
             }
-            let alderArray = hentAlder(personer);
-            regnUtGjennomsnitt(alderArray)
-           //visResultat() togs bort då den inte behövdes
-            
 
+            function visResultat() {
+                let alderArray = hentAldre(personer);
+                let gjennomsnitt = regnUtGjennomsnitt(alderArray);
+                console.log("Gjennomsnittsalderen er " + gjennomsnitt);
+            }
+
+            visResultat();
+        }
+
+        startProgram();
     </script>
 </body>
 </html>
